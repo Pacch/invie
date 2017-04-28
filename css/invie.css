@@ -1,0 +1,50 @@
+* 
+{
+	border: 1px solid red ;
+	margin: 10px;
+}
+
+header
+{
+	background: blue;
+}
+
+section
+{
+	background: purple;
+}
+
+/*selector descendete*/
+
+article h3
+{
+	color: green;
+}
+
+/*selectores de clase*/
+
+.tittle-a
+{
+	background: yellow;
+}
+
+.tittle-b
+{
+	background: salmon;
+}
+
+
+/*selector de id*/
+#header
+{
+	border: 3px solid black;
+}
+#portada
+{
+	border: 3px solid orange;
+}
+
+#guitarra
+{
+	border: 3px solid brown;
+}
