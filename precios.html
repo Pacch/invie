@@ -5,37 +5,42 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat" rel="stylesheet">
     <link rel="stylesheet"  href="css/invie2.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	   <title>Precios de tus mejores guitarras</title>
   </head>
   <body>
-  <header id="header" class="header  background">
+    <header id="header" class="header background">
+      <div class="contenedor">
+        <figure class="logotipo">  <!-- logotipo -->
+          <img src="imagenes/invie.png" srcset="imagenes/invie.png" width="186" height="60" alt="Invie logotipo">
+        </figure>
+        <span  class="burguer-button icon-menu" id="burguer-button"></span>
+       <nav class="menu" id="menu"> <!-- menu -->
+          <ul>
+            <li>
+               <a href="index.html">Home</a>  <!-- ctrl + shif + D = DUPLICA LO SELECCIONADO -->
+            </li>
+            <li>
+               <a href="index.html#guitarras">Guitarras</a>
+            </li>
+            <li>
+               <a href="precios.html">Precios</a>
+            </li>
+          </ul>
+       </nav>
+      </div>  
+    </header>
+    <section class="tabla">
   		<div class="contenedor">
-  			<figure class="logotipo">  <!-- logotipo -->
-     	 	<img src="imagenes/invie.png" width="186" height="60" alt="Invie logotipo">
-   		</figure>
-    	<nav class="menu"> <!-- menu -->
-      		<ul>
-       			 <li>
-          			<a href="index.html">Home</a>  <!-- ctrl + shif + D = DUPLICA LO SELECCIONADO -->
-        		</li>
-       			 <li>
-         			 <a href="index.html#guitarras">Guitarras</a>
-       			 </li>
-       			  <li>
-         			 <a href="precios.html">Precios</a>
-       			 </li>
-      		</ul>
-    	</nav>  
-  		</div>	
-  </header>
-  <section class="tabla">
-  		<div class="contendedor">
   			<table>
   				<thead>
   					<tr>
   						<th>Modelo</th>
   						<th>Precio</th>
   						<th>Descripcion</th>
+              <th>Modelo</th>
+              <th>Precio</th>
+              <th>Descripcion</th>
   					</tr>
   				</thead>
   				<tbody>
@@ -43,22 +48,30 @@
   						<td>Invie classic</td>
   						<td>$100000</td>
   						<td>Una guitarra muy muy pro</td>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy muy pro</td>
   					</tr>
   					<tr>
   						<td>Invie classic</td>
   						<td>$100000</td>
   						<td>Una guitarra muy muy pro</td>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy muy pro</td>
   					</tr>
   					<tr>
   						<td>Invie classic</td>
   						<td>$100000</td>
   						<td>Una guitarra muy muy pro</td>
-  			</tr>
-  		</tbody>
-  		</table>
-  	</div>
-  	
-  </section>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy muy pro</td>
+  			   </tr>
+  		    </tbody>
+  		  </table>
+  	  </div>
+    </section>
   <footer class="footer">
   	<div class="contenedor">
     	<div class="contacto">
@@ -104,6 +117,46 @@
       </form>  
    </div>    
   </footer>
-  	
+    <script>
+    var $burguerButton = document.getElementById('burguer-button');
+    var $menu = document.getElementById('menu');
+     function toggleMenu(){
+          $menu.classList.toggle('active') 
+          $burguerButton.classList.toggle('icon-close');    
+        };
+    var consulta = window.matchMedia('(max-width:500px)');
+    consulta.addListener(mediaQuery);
+
+    function mediaQuery() {
+        if (consulta.matches) {
+          console.log('se cumple');
+          $burguerButton.addEventListener('touchstart',toggleMenu);      
+      } else {
+          $burguerButton.removeEventListener('touchstart',toggleMenu);
+          console.log('no se cumple');
+        }  
+    }
+    mediaQuery();
+ /*hacer que las imagenes no carguen si no estan visibles en el viewport*/
+ 
+    /*lazy loading*/
+    var bLazy = new Blazy({
+      selector: 'img'
+    });
+
+     // $burguerButton.addEventListener('touchstart',toggleMenu); 
+
+     /*gestos touch*/
+      /*como llamar a un elemento unico*/
+     var $body =document.body;
+
+     var gestos = new Hammer($body);
+     gestos.on('swipe left', function(ev) {
+        console.log(ev);
+     }); 
+     gestos.on('swipe right', function(ev) {
+        console.log(ev);
+     });     
+  </script>
   </body> 
   </html>
